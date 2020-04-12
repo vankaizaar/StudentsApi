@@ -42,7 +42,7 @@ app.get('/api/v1/students/:id', (req, res) => {
     //Check if id provided is in collection of students
     const student = students.find(s => s.id === parseInt(req.params.id));
     //Send error and status code if student is missing
-    if (!student) res.status(404).send(`The student with ID ${req.params.id} was not found.`);
+    if (!student) res.status(404).send({errors: `The student with ID ${req.params.id} was not found.`});
     //Send student and status code
     res.status(200).send(student);
 });
